@@ -1,0 +1,56 @@
+<section class="page-hero">
+  <div class="container">
+    <span class="badge">Featured Properties</span>
+    <h1 class="section-title">Find land and property by location</h1>
+    <p class="section-subtitle">Search available properties and connect directly through WhatsApp for faster enquiry handling.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="filter-card card">
+      <input class="form-control" type="search" [(ngModel)]="locationText" (ngModelChange)="onFilterChange()" placeholder="Search by location, title, or type">
+      <select class="form-select" [(ngModel)]="typeText" (ngModelChange)="onFilterChange()">
+        <option value="">All Types</option>
+        <option value="Residential Land">Residential Land</option>
+        <option value="Commercial Land">Commercial Land</option>
+        <option value="Agricultural Land">Agricultural Land</option>
+        <option value="Layout">Layout</option>
+        <option value="Construction">Construction</option>
+        <option value="Apartment">Apartment</option>
+        <option value="Villa">Villa</option>
+      </select>
+      <button class="btn" type="button" (click)="clearFilters()">Clear</button>
+    </div>
+
+    <div class="properties-grid" *ngIf="properties$ | async as properties">
+      @for (property of properties; track property.id) {
+        <article class="property-card card">
+          @if (imageFor(property); as imageUrl) {
+            <img class="property-image" [src]="imageUrl" [alt]="property.title">
+          } @else {
+            <div class="property-image placeholder">SVR</div>
+          }
+          <div class="property-body">
+            <div class="property-type">{{ property.type }}</div>
+            <h2>{{ property.title }}</h2>
+            <p class="location">{{ property.location }}</p>
+            <div class="property-meta">
+              <span>{{ property.price }}</span>
+              <span>{{ property.area }}</span>
+            </div>
+            <p class="description">{{ property.description }}</p>
+            <div class="actions">
+              <a class="btn btn-primary" [routerLink]="['/properties', property.id]">View Details</a>
+              <a class="btn" [href]="whatsAppLink(property)" target="_blank" rel="noopener">WhatsApp</a>
+            </div>
+          </div>
+        </article>
+      }
+
+      <div class="empty-state" *ngIf="properties.length === 0">
+        No properties found for the selected search. Add properties from the admin panel or clear filters.
+      </div>
+    </div>
+  </div>
+</section>

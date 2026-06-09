@@ -1,0 +1,116 @@
+<section class="page-hero">
+  <div class="container">
+    <a class="back-link" routerLink="/admin">← Back to dashboard</a>
+    <span class="badge">{{ isEditMode ? 'Edit Property' : 'Add Property' }}</span>
+    <h1 class="section-title">{{ isEditMode ? 'Update listing details' : 'Create new property listing' }}</h1>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="empty-state" *ngIf="loading">Loading...</div>
+    <div class="form-error" *ngIf="errorMessage">{{ errorMessage }}</div>
+
+    <form class="card property-form" [formGroup]="form" (ngSubmit)="save()" *ngIf="!loading">
+      <div class="form-row">
+        <label>
+          <span class="form-label">Property Title *</span>
+          <input class="form-control" formControlName="title" placeholder="Example: 2 Acre Residential Land">
+          <span class="form-error" *ngIf="hasError('title')">Title is required.</span>
+        </label>
+        <label>
+          <span class="form-label">Location *</span>
+          <input class="form-control" formControlName="location" placeholder="Example: Whitefield, Bengaluru">
+          <span class="form-error" *ngIf="hasError('location')">Location is required.</span>
+        </label>
+      </div>
+
+      <div class="form-row">
+        <label>
+          <span class="form-label">Price *</span>
+          <input class="form-control" formControlName="price" placeholder="Example: ₹ 50 Lakhs">
+          <span class="form-error" *ngIf="hasError('price')">Price is required.</span>
+        </label>
+        <label>
+          <span class="form-label">Area *</span>
+          <input class="form-control" formControlName="area" placeholder="Example: 2 Acres / 1200 Sqft">
+          <span class="form-error" *ngIf="hasError('area')">Area is required.</span>
+        </label>
+      </div>
+
+      <div class="form-row">
+        <label>
+          <span class="form-label">Property Type *</span>
+          <select class="form-select" formControlName="type">
+            @for (type of propertyTypes; track type) {
+              <option [value]="type">{{ type }}</option>
+            }
+          </select>
+        </label>
+        <label>
+          <span class="form-label">Status</span>
+          <select class="form-select" formControlName="active">
+            <option [ngValue]="true">Active - visible to public</option>
+            <option [ngValue]="false">Inactive - hidden from public</option>
+          </select>
+        </label>
+      </div>
+
+      <label>
+        <span class="form-label">Description *</span>
+        <textarea class="form-textarea" rows="5" formControlName="description" placeholder="Enter property details"></textarea>
+        <span class="form-error" *ngIf="hasError('description')">Description is required.</span>
+      </label>
+
+      <label>
+        <span class="form-label">Features</span>
+        <textarea class="form-textarea" rows="4" formControlName="featuresText" placeholder="Enter each feature on a new line or comma separated"></textarea>
+      </label>
+
+      <div class="form-row">
+        <label>
+          <span class="form-label">Contact Name *</span>
+          <input class="form-control" formControlName="contactName" placeholder="SVR Property Landmark">
+          <span class="form-error" *ngIf="hasError('contactName')">Contact name is required.</span>
+        </label>
+        <label>
+          <span class="form-label">WhatsApp Number *</span>
+          <input class="form-control" formControlName="contactPhone" placeholder="Example: 919999999999">
+          <span class="form-error" *ngIf="hasError('contactPhone')">WhatsApp number is required.</span>
+        </label>
+      </div>
+
+      <div class="upload-box">
+        <span class="form-label">Property Images</span>
+        <textarea
+  placeholder="assets/properties/land1.jpg">
+</textarea>
+        <!-- <input type="file" accept="image/*" multiple (change)="onFilesSelected($event)"> -->
+        <!-- <p>Upload land/property photos. Existing photos can be removed below.</p> -->
+      </div>
+
+      <div class="image-grid" *ngIf="existingImages.length">
+        @for (image of existingImages; track image) {
+          <div class="image-tile">
+            <img [src]="image" alt="Existing property image">
+            <button type="button" (click)="removeExistingImage(image)">Remove</button>
+          </div>
+        }
+      </div>
+
+      <div class="image-grid" *ngIf="selectedPreviews.length">
+        @for (image of selectedPreviews; track image; let i = $index) {
+          <div class="image-tile">
+            <img [src]="image" alt="Selected property image">
+            <button type="button" (click)="removeSelectedImage(i)">Remove</button>
+          </div>
+        }
+      </div>
+
+      <div class="form-actions">
+        <button class="btn btn-primary" type="submit" [disabled]="saving">{{ saving ? 'Saving...' : 'Save Property' }}</button>
+        <a class="btn" routerLink="/admin">Cancel</a>
+      </div>
+    </form>
+  </div>
+</section>

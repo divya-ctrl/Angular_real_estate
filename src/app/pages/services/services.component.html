@@ -1,0 +1,25 @@
+<section class="page-hero">
+  <div class="container">
+    <span class="badge">Our Services</span>
+    <h1 class="section-title">Complete real estate, construction, and land development support</h1>
+    <p class="section-subtitle">SVR Property Landmark provides dependable guidance from property discovery to documentation, construction, and development execution.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container service-grid">
+    @for (service of services; track service.title) {
+      <article class="card service-card">
+        <div class="service-number">0{{ $index + 1 }}</div>
+        <h2>{{ service.title }}</h2>
+        <p>{{ service.description }}</p>
+        <h3>Our {{ service.title }} Services Include:</h3>
+        <ul>
+          @for (item of service.items; track item) {
+            <li>{{ item }}</li>
+          }
+        </ul>
+      </article>
+    }
+  </div>
+</section>

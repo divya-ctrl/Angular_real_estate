@@ -1,0 +1,171 @@
+.hero {
+  padding: 76px 0 46px;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 44px;
+  align-items: center;
+}
+
+.hero h1 {
+  font-size: clamp(3rem, 7vw, 6.4rem);
+  line-height: 0.96;
+  letter-spacing: -0.07em;
+  margin: 20px 0;
+}
+
+.hero p {
+  color: var(--muted);
+  font-size: 1.08rem;
+  line-height: 1.8;
+  max-width: 680px;
+}
+
+.search-box {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  padding: 12px;
+  margin: 28px 0 18px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.04);
+  border-radius: 24px;
+}
+
+.search-box .form-control {
+  border-radius: 999px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.hero-panel {
+  padding: 28px;
+  min-height: 520px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: radial-gradient(circle at 50% 35%, rgba(240, 193, 91, 0.26), transparent 34%), linear-gradient(145deg, #0d0d0d, #050505);
+}
+
+.logo-frame {
+  min-height: 360px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-frame img {
+  width: 92%;
+  filter: drop-shadow(0 24px 45px rgba(217,154,35,0.20));
+}
+
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.hero-stats div {
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: rgba(255,255,255,0.05);
+}
+
+.hero-stats strong,
+.hero-stats span {
+  display: block;
+}
+
+.hero-stats strong {
+  color: var(--gold-2);
+  margin-bottom: 6px;
+}
+
+.hero-stats span {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 42px;
+}
+
+.why-section {
+  background: rgba(255,255,255,0.025);
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 28px;
+}
+
+.why-card {
+  padding: 24px;
+}
+
+.why-card span {
+  color: var(--gold-2);
+  font-weight: 900;
+}
+
+.why-card h3 {
+  margin: 16px 0 0;
+  line-height: 1.45;
+}
+
+.commitment-card {
+  padding: clamp(28px, 5vw, 56px);
+}
+
+.commitment-card h2 {
+  font-size: clamp(2.2rem, 5vw, 4.6rem);
+  line-height: 1.02;
+  letter-spacing: -0.06em;
+  margin: 22px 0;
+}
+
+.commitment-card p {
+  color: var(--muted);
+  line-height: 1.85;
+  max-width: 940px;
+}
+
+.commitment-card strong {
+  color: var(--gold-2);
+  display: block;
+  margin-top: 24px;
+  letter-spacing: 0.08em;
+}
+
+@media (max-width: 900px) {
+  .hero-grid,
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .why-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .search-box {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-stats,
+  .why-grid {
+    grid-template-columns: 1fr;
+  }
+}

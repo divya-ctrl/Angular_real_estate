@@ -1,0 +1,76 @@
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <span class="badge">SVR Property Landmark</span>
+      <h1>Welcome to SVR Property Landmark</h1>
+      <p>
+        SVR Property Landmark is a trusted real estate company committed to delivering reliable property solutions with professionalism, transparency, and integrity.
+      </p>
+      <form class="search-box" (ngSubmit)="searchProperties()">
+        <input class="form-control" type="search" name="searchLocation" [(ngModel)]="searchLocation" placeholder="Search land/property by location">
+        <button class="btn btn-primary" type="submit">Search Property</button>
+      </form>
+      <div class="hero-actions">
+        <a class="btn btn-primary" routerLink="/properties">View Properties</a>
+        <a class="btn" routerLink="/services">Our Services</a>
+      </div>
+    </div>
+
+    <div class="hero-panel card">
+      <div class="logo-frame">
+        <img src="assets/svr-logo.png" alt="SVR logo">
+      </div>
+      <div class="hero-stats">
+        <div><strong>Buying</strong><span>Property Support</span></div>
+        <div><strong>Selling</strong><span>Market Guidance</span></div>
+        <div><strong>Construction</strong><span>Project Solutions</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container about-grid">
+    <div>
+      <span class="badge">About Us</span>
+      <h2 class="section-title">Reliable property solutions for confident decisions</h2>
+    </div>
+    <div>
+      <p class="section-subtitle">
+        We specialize in property buying and selling, construction services, and land development, helping individuals, businesses, and investors make informed real estate decisions with confidence.
+      </p>
+      <p class="section-subtitle">
+        With a customer-focused approach and strong industry knowledge, we simplify the real estate process while creating long-term value for our clients. Whether you are searching for the right property, planning a construction project, or developing land for future opportunities, our team provides complete support at every stage.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section why-section">
+  <div class="container">
+    <span class="badge">Why Choose SVR Property Landmark</span>
+    <h2 class="section-title">Professional. Transparent. Committed.</h2>
+    <div class="why-grid">
+      <article class="card why-card"><span>01</span><h3>Professional and transparent business practices</h3></article>
+      <article class="card why-card"><span>02</span><h3>Experienced team with strong market knowledge</h3></article>
+      <article class="card why-card"><span>03</span><h3>Complete real estate and construction solutions</h3></article>
+      <article class="card why-card"><span>04</span><h3>Customer-focused service approach</h3></article>
+      <article class="card why-card"><span>05</span><h3>Commitment to quality and timely delivery</h3></article>
+      <article class="card why-card"><span>06</span><h3>Reliable support throughout every stage of the project</h3></article>
+    </div>
+  </div>
+</section>
+
+<section class="section commitment">
+  <div class="container commitment-card card">
+    <span class="badge">Our Vision, Mission & Commitment</span>
+    <h2>Turning property dreams into timeless landmarks</h2>
+    <p>
+      To be a trusted leader in real estate, construction, and land development by delivering quality projects and creating lasting value for our clients. We are dedicated to providing dependable, transparent, and innovative property solutions that help you achieve your investment goals with complete confidence.
+    </p>
+    <p>
+      At SVR Property Landmark, we turn your property dreams into reality through expert guidance, professional service, and long-term support. Whether you are buying, selling, constructing, or developing, contact us today to see how we can build your future with complete peace of mind.
+    </p>
+    <strong>YOUR TRUST. OUR COMMITMENT. TIMELESS LANDMARKS</strong>
+  </div>
+</section>

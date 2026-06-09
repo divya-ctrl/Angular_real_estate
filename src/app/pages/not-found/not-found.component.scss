@@ -1,0 +1,20 @@
+.not-found {
+  min-height: 65vh;
+  display: grid;
+  place-items: center;
+}
+
+.not-found-card {
+  padding: 52px;
+  text-align: center;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  margin: 22px 0 10px;
+}
+
+p {
+  color: var(--muted);
+  margin-bottom: 26px;
+}

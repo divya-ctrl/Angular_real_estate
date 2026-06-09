@@ -1,0 +1,48 @@
+.site-footer {
+  border-top: 1px solid rgba(240, 193, 91, 0.16);
+  background: #030303;
+  padding: 52px 0 22px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1.2fr;
+  gap: 32px;
+}
+
+.footer-logo {
+  width: 150px;
+  height: 76px;
+  object-fit: contain;
+  margin-bottom: 14px;
+}
+
+h3 {
+  margin: 0 0 16px;
+  color: var(--gold-2);
+}
+
+p,
+a {
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+a {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.copyright {
+  margin-top: 36px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(240, 193, 91, 0.10);
+  color: var(--muted-2);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 760px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+}

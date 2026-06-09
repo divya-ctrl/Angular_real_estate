@@ -1,0 +1,32 @@
+<section class="page-hero">
+  <div class="container">
+    <span class="badge">Admin Access</span>
+    <h1 class="section-title">Manage property listings</h1>
+    <p class="section-subtitle">Only configured Gmail IDs can add, edit, and delete properties.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container login-wrap">
+    <div class="card login-card" *ngIf="authService.user$ | async as user; else loginBlock">
+      <h2>Signed in</h2>
+      <p>{{ user.email }}</p>
+      <div class="actions">
+        <a class="btn btn-primary" routerLink="/admin" *ngIf="authService.isAdmin(user)">Open Dashboard</a>
+        <button class="btn" type="button" (click)="logout()">Logout</button>
+      </div>
+    </div>
+
+    <ng-template #loginBlock>
+      <div class="card login-card">
+        <img src="assets/svr-logo.png" alt="SVR logo">
+        <h2>Login with Google</h2>
+        <p>Public users do not need login. Login is only for SVR admin users.</p>
+        <button class="btn btn-primary" type="button" (click)="login()" [disabled]="loading">
+          {{ loading ? 'Signing in...' : 'Continue with Google' }}
+        </button>
+        <div class="form-error" *ngIf="errorMessage">{{ errorMessage }}</div>
+      </div>
+    </ng-template>
+  </div>
+</section>

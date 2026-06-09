@@ -1,0 +1,79 @@
+.dashboard-head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.head-actions,
+.action-cell {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.table-card {
+  overflow: auto;
+}
+
+.admin-row {
+  min-width: 900px;
+  display: grid;
+  grid-template-columns: 100px 1.4fr 1fr 110px 230px;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 18px;
+  border-bottom: 1px solid rgba(240, 193, 91, 0.12);
+}
+
+.table-head {
+  color: var(--gold-2);
+  font-weight: 900;
+  background: rgba(217, 154, 35, 0.08);
+}
+
+.admin-row img,
+.mini-placeholder {
+  width: 78px;
+  height: 58px;
+  border-radius: 12px;
+  object-fit: cover;
+  background: var(--surface-3);
+}
+
+.mini-placeholder {
+  display: grid;
+  place-items: center;
+  color: var(--gold-2);
+  font-weight: 900;
+}
+
+strong,
+small {
+  display: block;
+}
+
+small {
+  margin-top: 6px;
+  color: var(--muted);
+}
+
+mark {
+  display: inline-flex;
+  padding: 7px 10px;
+  border-radius: 999px;
+  background: rgba(126, 231, 135, 0.14);
+  color: var(--success);
+}
+
+mark.inactive {
+  background: rgba(248, 113, 113, 0.14);
+  color: #fca5a5;
+}
+
+@media (max-width: 780px) {
+  .dashboard-head {
+    align-items: start;
+    flex-direction: column;
+  }
+}

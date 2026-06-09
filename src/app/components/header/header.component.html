@@ -1,0 +1,23 @@
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" routerLink="/" (click)="closeMenu()" aria-label="SVR Property Landmark home">
+      <img src="assets/svr-logo.png" alt="SVR Property Landmark logo">
+      <span>Property Landmark</span>
+    </a>
+
+    <button class="menu-toggle" type="button" (click)="toggleMenu()" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="nav" [ngClass]="{ open: menuOpen }">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMenu()">Home</a>
+      <a routerLink="/services" routerLinkActive="active" (click)="closeMenu()">Services</a>
+      <a routerLink="/properties" routerLinkActive="active" (click)="closeMenu()">Properties</a>
+      <a routerLink="/contact" routerLinkActive="active" (click)="closeMenu()">Contact</a>
+      <a *ngIf="authService.isAdmin(authService.user$ | async)" routerLink="/admin" routerLinkActive="active" (click)="closeMenu()">Admin</a>
+      <a class="nav-cta" routerLink="/properties" (click)="closeMenu()">Get Started</a>
+    </nav>
+  </div>
+</header>

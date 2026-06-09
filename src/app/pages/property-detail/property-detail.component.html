@@ -1,0 +1,48 @@
+<section class="page-hero">
+  <div class="container">
+    <a class="back-link" routerLink="/properties">← Back to properties</a>
+    <h1 class="section-title">Property Details</h1>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="empty-state" *ngIf="loading">Loading property details...</div>
+    <div class="empty-state" *ngIf="!loading && errorMessage">{{ errorMessage }}</div>
+
+    <div class="detail-grid" *ngIf="!loading && property as item">
+      <div class="gallery card">
+        @if (selectedImage) {
+          <img class="main-image" [src]="selectedImage" [alt]="item.title">
+        } @else {
+          <div class="main-image placeholder">SVR</div>
+        }
+        <div class="thumbs" *ngIf="item.images.length > 1">
+          @for (image of item.images; track image) {
+            <button type="button" (click)="selectImage(image)" [class.active]="image === selectedImage">
+              <img [src]="image" [alt]="item.title">
+            </button>
+          }
+        </div>
+      </div>
+
+      <aside class="contact-card card">
+        <span class="badge">{{ item.type }}</span>
+        <h2>{{ item.title }}</h2>
+        <p class="location">{{ item.location }}</p>
+        <div class="meta">
+          <span>{{ item.price }}</span>
+          <span>{{ item.area }}</span>
+        </div>
+        <p>{{ item.description }}</p>
+        <h3>Features</h3>
+        <ul>
+          @for (feature of item.features; track feature) {
+            <li>{{ feature }}</li>
+          }
+        </ul>
+        <a class="btn btn-primary full" [href]="whatsAppLink()" target="_blank" rel="noopener">Contact on WhatsApp</a>
+      </aside>
+    </div>
+  </div>
+</section>
